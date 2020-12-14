@@ -7,7 +7,7 @@ toNewFile='/tmp/'$data'.tar'
 
 #archive
 echo "archive from: \"$PWD$from\" to: \"$toNewFile\""
-tar -vczf $toNewFile $from
+tar -czf $toNewFile $from
 echo "gpg file: $toNewFile"
 gpg -c $toNewFile
 echo "remove file: $toNewFile"
@@ -15,15 +15,15 @@ rm -rf $toNewFile
 
 ls -l "/tmp"
 
-echo "----"
+#echo "----"
 
-extractTo='/tmp/extract/'
+#extractTo='/tmp/extract/'
 
-echo "encrypt file: \"$toNewFile.gpg\""
-gpg $toNewFile.gpg 
+#echo "encrypt file: \"$toNewFile.gpg\""
+#gpg $toNewFile.gpg 
 #unarchive
-echo "unarchive file: \"$toNewFile\" to: \"/tmp/extract/\""
-tar -vxzf $toNewFile -C $extractTo
-echo "remove file: $toNewFile.gpg"
-rm -rf $toNewFile $toNewFile.gpg
+#echo "unarchive file: \"$toNewFile\" to: \"/tmp/extract/\""
+#tar -vxzf $toNewFile -C $extractTo
+#echo "remove file: $toNewFile.gpg"
+#rm -rf $toNewFile $toNewFile.gpg
 
