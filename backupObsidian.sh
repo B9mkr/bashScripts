@@ -1,9 +1,9 @@
 #! /bin/bash
 
 data=`date +%Y%m%d%H%M%S`
-cd '/home/bm/snap/obsidian/x1'
+cd '/home/bm/Documents'
 from='base'
-toNewFile='/tmp/'$data'.tar'
+toNewFile='/home/bm/Documents/Backups/backupObsidian/'$data'.tar'
 
 #archive
 echo "archive from: \"$PWD$from\" to: \"$toNewFile\""
