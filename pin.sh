@@ -8,7 +8,15 @@
 
 i=0
 n=$1 # number of repetitions
+if [ -z "$n" ] then
+  n=1
+fi
+
 t=$2 # waiting time between pings
+if [ -z "$t" ] then
+  t="10s"
+fi
+
 pingUrl="www.google.com"
 sendingCount=10
 
