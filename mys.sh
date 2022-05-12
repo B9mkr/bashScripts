@@ -443,3 +443,70 @@ end="\e[0m"
 # p=`pwd`
 # cd $p
 # touch file123
+
+# ----------------------------
+
+# ---
+# sk name 20 180
+#   name
+#   020-180
+# ---
+# sk name 1 80
+#   name
+#   01-80
+# ---
+# ---
+# sk name 40
+#   name
+#   1-40
+# ---
+# ---
+# sk name
+#   name
+#   1-10
+# ---
+# ---
+# sk
+#   genName
+#   1-10
+
+i=$1
+n=$2
+n=$(( $n + 1 ))
+
+while [ $i -lt $n ]
+do
+  if [ $n -lt 10 ]; then
+    name="ch$i.html"
+  elif [ $n -lt 100 ]; then
+    if [ $i -lt 10 ]; then
+      name="ch0$i.html"
+    else
+      name="ch$i.html"
+    fi
+
+  # elif [ $n -lt 1000 ]; then
+
+  #   if [ $i -lt 10 ]; then
+  #     name="ch000$i.html"
+  #   elif [ $i -lt 100 ]; then
+  #     name="ch00$i.html"
+  #   elif [ $i -lt 1000 ]; then
+  #     name="ch0$i.html"
+  #   else
+  #     name="ch$i.html"
+  #   fi
+
+  else
+    if [ $i -lt 10 ]; then
+      name="ch00$i.html"
+    elif [ $i -lt 100 ]; then
+      name="ch0$i.html"
+    else
+      name="ch$i.html"
+    fi
+  fi
+  echo "$name"
+  i=$(( $i + 1 ))
+done
+
