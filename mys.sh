@@ -383,8 +383,8 @@ end="\e[0m"
 
 # ----------------------------
 
-# i=1
-# n=10 # number of repetitions
+# i=20
+# n=40 # number of repetitions
 # echo "copy to toc ($i - $(( $n - 1 )))"
 # file="/home/bm/pr"
 # echo "" > $file
@@ -400,10 +400,10 @@ end="\e[0m"
 
 # ----------------------------
 
-file="/home/bm/Desktop/pr"
-date > $file
-xclip -selection clipboard $file
-echo "copy date to clipboard"
+# file="/home/bm/Desktop/pr"
+# date > $file
+# xclip -selection clipboard $file
+# echo "copy date to clipboard"
 
 # ----------------------------
 
@@ -437,3 +437,9 @@ echo "copy date to clipboard"
 #       <content src=\"info.html#toc_1\"/>
 #     </navPoint>" >> $file
 # xclip -selection clipboard $file
+
+# ----------------------------
+
+# p=`pwd`
+# cd $p
+# touch file123
