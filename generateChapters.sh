@@ -48,6 +48,7 @@ echo "Created in directory: $directory"
 cd $directory
 echo "" > $toc
 
+n=$(( $n + 1 ));
 sumfiles=$(( $n - $i ));
 
 while [ $i -lt $n ]

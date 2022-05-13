@@ -14,6 +14,7 @@ xclip -selection clipboard -o > $tes
 echo -e "\t${yellow}Start translating${end} text to russian"
 
 time trans :ru file://$tes > $tra
+# time trans -no-auto :ru file://$tes > $tra
 
 xclip -selection clipboard $tra
 
