@@ -3,6 +3,8 @@
 green="\e[1;32m"
 end="\e[0m"
 file="/tmp/copiedTheDate"
-date > $file
+currentDate=`date`
+echo $currentDate > $file
+# sed -i '/^$/d' $file
 xclip -selection clipboard $file
-echo -e "${green} Copied ${end} the date to the clipboard"
+echo -e "Current date \"$currentDate\" ${green} Copied ${end}"

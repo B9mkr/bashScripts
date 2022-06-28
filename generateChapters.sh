@@ -51,26 +51,43 @@ echo "" > $toc
 n=$(( $n + 1 ));
 sumfiles=$(( $n - $i ));
 
+function numberOfZeros {
+  local numberIn=$1
+  local wynnik=1
+  local z=1
+  while [ $z -le $numberIn ];
+  do
+    z=$(( $z * 10 ))
+    wynnik=$(( $wynnik + 1 ))
+  done
+  echo $(( $wynnik - 1 ))
+}
+
+function stringZero {
+  local numberIn=$1
+  local i=0
+  local z=""
+  while [ $i -lt $numberIn ];
+  do
+    z="${z}0"
+    i=$(( $i + 1 ))
+  done
+  echo "$z"
+}
+
+function generateName {
+  numberIn=$1
+  numberIn2=$2
+  t="$(numberOfZeros $numberIn2)"
+  t2="$(numberOfZeros $numberIn)"
+  zero="$(stringZero $(( $t - $t2 )))"
+  echo "ch${zero}$numberIn.html"
+}
+
 while [ $i -lt $n ]
 do
 
-  if [ $n -lt 10 ]; then
-    name="ch$i.html"
-  elif [ $n -lt 100 ]; then
-    if [ $i -lt 10 ]; then
-      name="ch0$i.html"
-    else
-      name="ch$i.html"
-    fi
-  else
-    if [ $i -lt 10 ]; then
-      name="ch00$i.html"
-    elif [ $i -lt 100 ]; then
-      name="ch0$i.html"
-    else
-      name="ch$i.html"
-    fi
-  fi
+  name="$(generateName $i $n)"
 
   echo -e "file \"$name\" ${green} created ${end}"
   touch $name
@@ -105,6 +122,15 @@ echo "    <navPoint id=\"num_$(($j+1))\" playOrder=\"$(($j+1))\">
         <text>QR код для скачивания книги</text>
       </navLabel>
       <content src=\"info.html#toc_1\"/>
+    </navPoint>" >> $toc
+
+j=$(( $j + 1 ))
+
+echo "    <navPoint id=\"num_$(($j+1))\" playOrder=\"$(($j+1))\">
+      <navLabel>
+        <text>Примечания</text>
+      </navLabel>
+      <content src=\"footnotes.xhtml\"/>
     </navPoint>" >> $toc
 
 echo -e "files $sumfiles ${green} created ${end}"

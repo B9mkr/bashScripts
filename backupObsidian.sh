@@ -1,19 +1,20 @@
 #! /bin/bash
 
+thisFolder=`pwd`
 data=`date +%Y%m%d%H%M%S`
-cd '/home/bm/Documents'
-from='base'
-toNewFile='/home/bm/Documents/Backups/backupObsidian/'$data'.tar'
+cd /home/bm/Documents
+from="base"
+toNewFile="$thisFolder/$data.tar"
 
 #archive
-echo "archive from: \"$PWD$from\" to: \"$toNewFile\""
+echo "Archive from: \"$from\" to: \"$toNewFile\""
 tar -czf $toNewFile $from
-echo "gpg file: $toNewFile"
-gpg -c $toNewFile
-echo "remove file: $toNewFile"
-rm -rf $toNewFile
+# echo "gpg file: $toNewFile"
+# gpg -c $toNewFile
+# echo "remove file: $toNewFile"
+# rm -rf $toNewFile
 
-ls -l "/tmp"
+# ls -l "/tmp"
 
 #echo "----"
 
