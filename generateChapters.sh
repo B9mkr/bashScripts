@@ -86,12 +86,9 @@ function generateName {
 
 while [ $i -lt $n ]
 do
-
   name="$(generateName $i $n)"
-
   echo -e "file \"$name\" ${green} created ${end}"
   touch $name
-
     echo "<?xml version='1.0' encoding='utf-8'?>
 <html xmlns=\"http://www.w3.org/1999/xhtml\">
 <head>
@@ -105,17 +102,29 @@ do
 
 </body>
 </html>" > $name
-   
     echo "    <navPoint id=\"num_$(($j+1))\" playOrder=\"$(($j+1))\">
       <navLabel>
         <text>Глава $i</text>
       </navLabel>
       <content src=\"$name\"/>
     </navPoint>" >> $toc
-
   i=$(( $i + 1 ))
   j=$(( $j + 1 ))
 done
+
+# while [ $i -lt $n ]
+# do
+#   name="$(generateName $i $n)"
+#   echo -e "file \"$name\" ${green} created ${end}"
+#   echo "    <navPoint id=\"num_$(($j+1))\" playOrder=\"$(($j+1))\">
+#       <navLabel>
+#         <text>Глава $i</text>
+#       </navLabel>
+#       <content src=\"$name\"/>
+#     </navPoint>" >> $toc
+#   i=$(( $i + 1 ))
+#   j=$(( $j + 1 ))
+# done
 
 echo "    <navPoint id=\"num_$(($j+1))\" playOrder=\"$(($j+1))\">
       <navLabel>
@@ -133,6 +142,6 @@ echo "    <navPoint id=\"num_$(($j+1))\" playOrder=\"$(($j+1))\">
       <content src=\"footnotes.xhtml\"/>
     </navPoint>" >> $toc
 
-echo -e "files $sumfiles ${green} created ${end}"
+# echo -e "files $sumfiles ${green} created ${end}"
 echo -e "file \"toc\" ${green} created ${end}"
 
