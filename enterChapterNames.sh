@@ -77,39 +77,6 @@ function showArray {
   done
 }
 
-function numberOfZeros {
-  local numberIn=$1
-  local wynnik=1
-  local z=1
-  while [ $z -le $numberIn ];
-  do
-    z=$(( $z * 10 ))
-    wynnik=$(( $wynnik + 1 ))
-  done
-  echo $(( $wynnik - 1 ))
-}
-
-function stringZero {
-  local numberIn=$1
-  local i=0
-  local z=""
-  while [ $i -lt $numberIn ];
-  do
-    z="${z}0"
-    i=$(( $i + 1 ))
-  done
-  echo "$z"
-}
-
-function generateName {
-  local numberIn=$1
-  local numberIn2=$2
-  local t="$(numberOfZeros $numberIn2)"
-  local t2="$(numberOfZeros $numberIn)"
-  local zero="$(stringZero $(( $t - $t2 )))"
-  echo "ch${zero}$numberIn.html"
-}
-
 function allIsRight {
   read -p "All is right? (Y/N)" response
   if [ $response = "y" ] || [ $response = "Y" ]
@@ -138,6 +105,7 @@ function edit {
   sed -i 's/<p/\n<p/g' $tes
   sed -i 's/<\/div>/\n<\/div>/g' $tes
   sed -i 's/<div/\n<div/g' $tes
+  sed -i 's/<img/\n<img/g' $tes
   sed -i '/div/d' $tes
   sed -i '/^$/d' $tes
   
@@ -147,6 +115,7 @@ function edit {
   sed -i 's/<p>-<\/p>/\n<h5 class="center">\*\*\*<\/h5>/g' $tes
   sed -i 's/<p>--<\/p>/\n<h5 class="center">\*\*\*<\/h5>/g' $tes
   sed -i 's/<p>---<\/p>/\n<h5 class="center">\*\*\*<\/h5>/g' $tes
+  sed -i 's/<p>+++<\/p>/\n<h5 class="center">\*\*\*<\/h5>/g' $tes
   sed -i 's/<p>u003du003d<\/p>/\n<h5 class="center">\*\*\*<\/h5>/g' $tes
   sed -i 's/<p>__________<\/p>/\n<h5 class="center">\*\*\*<\/h5>/g' $tes
   sed -i 's/<p>———————————————————————<\/p>/\n<h5 class="center">\*\*\*<\/h5>/g' $tes

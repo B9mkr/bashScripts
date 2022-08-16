@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. /home/bm/Documents/bashScripts/oneScripts/attachedFiles.sh
+
 black="\e[1;30m"
 red="\e[1;31m"
 green="\e[1;32m"
@@ -100,17 +102,17 @@ end="\e[0m"
 
 # ----------------------------
 
-# procent
-echo -e "a = b"
-echo -e "x = c"
-read -p "a: " a
-read -p "b: " b
-read -p "c: " c
-# echo "$((($2*100)/$1))"
-echo `bc <<< "scale = 5 ; ($c*$a)/$b"`
-# 100 $1
-# x $2
-# x=($2*100)/$1
+# # procent
+# echo -e "a = b"
+# echo -e "x = c"
+# read -p "a: " a
+# read -p "b: " b
+# read -p "c: " c
+# # echo "$((($2*100)/$1))"
+# echo `bc <<< "scale = 5 ; ($c*$a)/$b"`
+# # 100 $1
+# # x $2
+# # x=($2*100)/$1
 
 # ----------------------------
 
@@ -1296,3 +1298,33 @@ echo `bc <<< "scale = 5 ; ($c*$a)/$b"`
 # url="newUrl$$"
 # enterTags "$url" "Title $$" "Answer $$"
 # cat $url
+
+# ----------------------------
+
+# # ext=$1
+# resultUrl="result.csv"
+# for filename in `ls *.html`
+# do
+#   wordsCount=$(countWordsUrl "$filename")
+#   content="\"$filename\" , \"$wordsCount\""
+#   contentToUrl "$content" "$resultUrl"
+# done
+
+# ----------------------------
+
+# Telegram id -> color
+
+# id=869378031
+# color=$( expr $id % 7 )
+# case $color in
+#   "0") colorOut="${red}red${end}" ;;        
+#   "1") colorOut="orange" ;;        
+#   "2") colorOut="${purple}violet${end}" ;;        
+#   "3") colorOut="${green}green${end}" ;;        
+#   "4") colorOut="${cyan}cyan${end}" ;;        
+#   "5") colorOut="${blue}blue${end}" ;;        
+#   "6") colorOut="pink" ;;        
+#   *) colorOut="I don't known" ;;        
+# esac
+# echo -e "color: $colorOut"
+

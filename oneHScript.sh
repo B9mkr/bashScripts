@@ -1,13 +1,6 @@
 #!/bin/bash
 
-#echo "my actual script"
-
-#echo "installing for latex convert"
-#sudo apt-get install texlive
-#sudo apt install texinfo
-#sudo apt-get install texlive-fonts-recommended
-#sudo apt-get install texlive-fonts-extra
-#sudo apt-get install texlive-latex-extra
+. /home/bm/Documents/bashScripts/today.sh
 
 # ----------------------------
 
@@ -27,16 +20,16 @@
 
 # ----------------------------
 
-#i=`ls /tmp/ta*`
+# tme=`date +%H:%M:%S`
+# touch "/home/bm/Desktop/$tme"
 
-#if [ $i -lt 0 ]
-#then
-  #echo "true"
-#else  
-  #echo "false"
-#fi
-
-tme=`date +%H:%M:%S`
-touch "/home/bm/Desktop/$tme"
 # notify-send "crontab $tme"
+
+# ----------------------------
+
+# notify-send "What are you doing now?"
+
+# ----------------------------
+
+python3 /home/bm/Documents/myProjects/telegramBot/everyMinut.py
 
